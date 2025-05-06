@@ -37,6 +37,7 @@ function init() {
   });
 
   playButton.addEventListener("click", () => {
+    hornAudio.currentTime = 0;
     hornAudio.play();
 
     if (hornSelect.value === "party-horn") {
