@@ -8,6 +8,7 @@ function init() {
   const voiceSelect = document.getElementById("voice-select");
   const speakButton = document.querySelector("#explore button");
   const textInput = document.getElementById("text-to-speak");
+  const faceImg = document.querySelector("#explore img");
 
   populateVoiceList(voiceSelect, synth);
 
@@ -21,6 +22,13 @@ function init() {
     const voices = synth.getVoices();
 
     toSay.voice = voices.find(voice => voice.name === selectedVoice);
+
+    faceImg.src = "./assets/images/smiling-open.png";
+
+    toSay.onend = () => {
+      faceImg.src = "./assets/images/smiling.png";
+    };
+
     synth.speak(toSay);
   });
 };
